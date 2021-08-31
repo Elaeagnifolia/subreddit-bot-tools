@@ -6,7 +6,7 @@ These all use PRAW. Quick start and installation can be found here: https://praw
 ## MegathreadPostUpdater.py
 Generates a list of desired threads and megathreads automatically in a given comment. Acts as a way to get around Reddit's only 2 pinned posts.
 
-praw.ini Variables
+**praw.ini Variables**
 ```
 user_agent
 redirect_uri
@@ -18,6 +18,16 @@ subreddit
 comment_id
 post_limit
 ```
+
+**Usage**
+Usage:
+  MegathreadPostUpdater.py [site] [flairs] [headers] [megathreads]
+
+Arguments:
+  site          The praw.ini site identifier
+  flairs        Comma-separated list of flairs to make subsections for
+  headers       Comma-separated list of header names for flair subsections
+  megathreads   Semicolon-separated list of general megathread names
 
 **Examples**
 * /r/MrLove: https://www.reddit.com/r/MrLove/comments/f29nzo/read_me_subreddit_rules_megathreads_flairs_and/fhb3qyk/
