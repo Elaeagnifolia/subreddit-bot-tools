@@ -1,21 +1,20 @@
 '''
-Generates a list of desired threads and megathreads automatically in a given comment.
-Acts as a way to get around Reddit's only 2 pinned posts.
+For a given post, users can specify flairs to generate subsections
+with lists of submissions for the given flair.
+
+By default, also generates a list of the given Megathreads with the
+latest posts for that type of Megathread.
 
 Usage:
-  MegathreadPostUpdater.py [site] [flairs] [headers] [megathreads]
+  MegathreadPostUpdater.py [site]
 
 Arguments:
   site          The praw.ini site identifier
-  flairs        Comma-separated list of flairs to make subsections for
-  headers       Comma-separated list of header names for flair subsections
-  megathreads   Semicolon-separated list of general megathread names
 
 Author: Elaeagnifolia | /u/Elaeagnifolia
 '''
 
 import praw
-import pprint
 import datetime
 import time
 import prawcore
