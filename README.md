@@ -110,7 +110,7 @@ megathread5=Self Promotion Megathread
 ```
 
 ## SpoilerFlairEditor.py
-For cases where a community wants to allow limited editing of flairs specifically for spoiler posts. For example, if an OP of a post has a `Game Screenshot` post marked as Spoiler, and they want to add where in the game the post spoils (e.g. Chapter 3), replying to the bot will edit the flair to be `Game Screenshot [Chapter 3]`.
+For cases where a community wants to allow limited editing of flairs specifically for spoiler posts. For example, if an OP of a post has a `Game Screenshot` post marked as Spoiler, and they want to add where in the game the post spoils (e.g. Chapter 3), replying to the bot will edit the flair to be `Game Screenshot | Chapter 3`.
 
 This allows users to add in this information without needing to have their post deleted/repost and also doesn't completely give users access to flair editing.
 
