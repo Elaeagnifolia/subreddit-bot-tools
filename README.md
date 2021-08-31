@@ -6,6 +6,8 @@ These all use PRAW. Quick start and installation can be found here: https://praw
 ## MegathreadPostUpdater.py
 Generates a list of desired threads and megathreads automatically in a given comment. Acts as a way to get around Reddit's only 2 pinned posts.
 
+**TO-DO**: Add functionality for it to edit the Wiki as well (index, sidebar, etc.)
+
 **praw.ini Variables**
 ```
 user_agent
