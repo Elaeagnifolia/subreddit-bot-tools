@@ -10,7 +10,7 @@ Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
     * [Usage](#usage)
         * [Example](#example)
 * [FlairEditor.py](#flaireditorpy)
-    * [To-Do](#to-do)
+    * [To-Do](#to-do-1)
 
 ## Requirements
 
