@@ -21,6 +21,8 @@ Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
 ## MegathreadPostUpdater.py
 For a given post, users can specify flairs to generate subsections with lists of submissions for the given flair. By default, also generates a list of the given Megathreads with the latest posts for that type of Megathread.
 
+Submissions will fall off the list when: 1) They are no longer pulled due to going past the specified `post_limit` 2) If the submission is Locked.
+
 ### To-Do
 * Add functionality for it to edit Wiki pages as well (index, sidebar, etc.)
 
