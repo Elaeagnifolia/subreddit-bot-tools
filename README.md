@@ -20,6 +20,7 @@ post_limit
 ```
 
 **Usage**
+```
 Usage:
   MegathreadPostUpdater.py [site] [flairs] [headers] [megathreads]
 
@@ -28,6 +29,7 @@ Arguments:
   flairs        Comma-separated list of flairs to make subsections for
   headers       Comma-separated list of header names for flair subsections
   megathreads   Semicolon-separated list of general megathread names
+```
 
 **Examples**
 * /r/MrLove: https://www.reddit.com/r/MrLove/comments/f29nzo/read_me_subreddit_rules_megathreads_flairs_and/fhb3qyk/
