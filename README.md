@@ -78,6 +78,7 @@ Arguments:
 
 **praw.ini Example**:
 ```
+[mrlove_bot]
 # Credentials
 ...
 
