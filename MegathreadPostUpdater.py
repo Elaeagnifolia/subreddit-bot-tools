@@ -16,7 +16,6 @@ Author: Elaeagnifolia | /u/Elaeagnifolia
 
 import praw
 import datetime
-import time
 import prawcore
 import argparse
 
