@@ -9,8 +9,11 @@ Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
         * [Template](#template)
     * [Usage](#usage)
         * [Example](#example)
-* [FlairEditor.py](#flaireditorpy)
-    * [To-Do](#to-do-1)
+* [SpoilerFlairEditor.py](#spoilerflaireditorpy)
+    * [praw.ini](#prawini-1)
+        * [Template](#template)
+    * [Usage](#usage)
+        * [Example](#example)
 
 ## Requirements
 
@@ -105,10 +108,69 @@ megathread4=Free Talk Weekend Weekly Megathread
 megathread5=Self Promotion Megathread
 ```
 
-## FlairEditor.py
-For cases where a community wants to allow limited editing of flairs. For example, if a user has a `Game Screenshot` post marked as Spoiler, and they want to add where in the game the post spoils (e.g. Chapter 3), replying to the bot will edit the flair to be `Game Screenshot [Chapter 3]`.
+## SpoilerFlairEditor.py
+For cases where a community wants to allow limited editing of flairs specifically for spoiler posts. For example, if an OP of a post has a `Game Screenshot` post marked as Spoiler, and they want to add where in the game the post spoils (e.g. Chapter 3), replying to the bot will edit the flair to be `Game Screenshot [Chapter 3]`.
 
 This allows users to add in this information without needing to have their post deleted/repost and also doesn't completely give users access to flair editing.
 
+A bot will only edit a flair once per post to prevent flair editing abuse.
+
 ### To-Do
-* 
+* Some parts of the script may be too specific to the subreddit this was initially intended for (/r/TearsOfThemis). Refactor to make it applicable across more subreddits.
+
+### praw.ini
+SpoilerFlairEditor.py needs a few custom-defined variables in praw.ini
+
+#### Template
+```
+[site]
+# Credentials
+user_agent=
+redirect_uri=
+client_id=
+client_secret=
+password=
+username=
+
+# Custom Settings
+subreddit=
+flair_edit_post_limit=
+spoiler_edit_flair_reminder=
+```
+
+### Usage
+```
+Usage:
+  SpoilerFlairEditor.py [site]
+
+Arguments:
+  site          The praw.ini site identifier
+```
+
+#### Example
+
+**Link**: https://www.reddit.com/r/TearsOfThemis/comments/pcgghp/episode_5_iii_walkthrough_and_rec_power_levels/
+
+**Command**: `py SpoilerFlairEditor.py tot_bot`
+
+```
+[tot_bot]
+# Credentials
+...
+
+# Post Settings
+subreddit=TearsOfThemis
+flair_edit_post_limit=50
+spoiler_edit_flair_reminder=Your post has been detected as a **Spoiler** post.
+
+  It is recommended to let other users know what content this spoils by leaving a comment that says `spoiler=<Spoiler Content>`. This will then append the spoiler content to your post flair (e.g. `Guide [Main Story 05-01]`).
+
+  Some examples might be:
+
+  * Main Story: `spoiler=Main Story 05-01`
+  * Character Story: `spoiler=Luke 02-04`
+  * Card Story: `spoiler=Artem "Atmospherics"`
+  * Event: `spoiler=Lost Gold`
+
+  **If your post title already clearly states the content your post spoils, then you may ignore this message.**
+```
