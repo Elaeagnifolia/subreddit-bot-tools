@@ -49,7 +49,7 @@ def is_set_spoiler_comment(comment):
 
 def edit_spoiler_flairs(reddit, posts):
 	for submission in posts:
-		for comment in submission.comments:
+		for comment in submission.comments.list():
 			if comment.is_submitter and is_set_spoiler_comment(comment.body):
 				current_flair_id = submission.link_flair_template_id
 				current_flair_text = submission.link_flair_text
