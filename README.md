@@ -68,7 +68,7 @@ Arguments:
   site          The praw.ini site identifier
 ```
 
-#### Examples
+#### Example
 
 ##### /r/MrLove
 
