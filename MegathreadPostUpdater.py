@@ -77,14 +77,14 @@ def generate_general_megathread_section(subreddit, megathreads, posts):
 
 	return general_megathread_post_content
 
-def generate_megathread_section(reddit, flair_subsections, subsection_headers, megathreads):
+def generate_megathread_section(reddit, subsection_flairs, subsection_headers, megathreads):
 	## Initialize the dictionary that will track the various subsection posts
 	## By default, there will always have a Megathread subsection.
 	sorted_posts = {
 		'Megathread': []
 	}
-	for subsection in flair_subsections:
-		sorted_posts[subsection] = []
+	for flair in subsection_flairs:
+		sorted_posts[flair] = []
 
 	## Get all the posts we'll be sorting through
 	subreddit = reddit.config.custom['subreddit']
@@ -92,7 +92,7 @@ def generate_megathread_section(reddit, flair_subsections, subsection_headers, m
 
 	## Sort the posts based on flair
 	for submission in posts:
-		if (is_active_post(submission, flair_subsections)):
+		if (is_active_post(submission, subsection_flairs)):
 			sorted_posts[submission.link_flair_text].append(submission)
 		if (is_megathread(submission)):
 			sorted_posts['Megathread'].append(submission)
@@ -100,7 +100,7 @@ def generate_megathread_section(reddit, flair_subsections, subsection_headers, m
 	## Generate the post content
 	post_content = generate_header_title(1, 'Megathreads') + '\n'
 
-	for index,subsection in enumerate(flair_subsections):
+	for index,subsection in enumerate(subsection_flairs):
 		post_content = post_content + generate_section(
 			sorted_posts[subsection],
 			subsection_headers[index]
@@ -109,21 +109,31 @@ def generate_megathread_section(reddit, flair_subsections, subsection_headers, m
 	return post_content + generate_general_megathread_section(subreddit, megathreads, sorted_posts['Megathread'])
 
 def main():
+	SUBSECTION_FLAIR_CONFIG_PREFIX = 'subsection_flair'
+	SUBSECTION_HEADER_CONFIG_PREFIX = 'subsection_header'
+	MEGATHREAD_CONFIG_PREFIX = 'megathread'
+
 	## Parse the command line arguments
 	parser = argparse.ArgumentParser(description='Get inputs for building README Megathread section')
 	parser.add_argument('site', help='The praw.ini site identifier')
-	parser.add_argument('flairs', help='Comma-separated list of flairs to make subsections for', default='')
-	parser.add_argument('headers', help='Comma-separated list of header names for the flair subsections', default='')
-	parser.add_argument('megathreads', help='Semicolon-separated list of general megathread names')
 	args = parser.parse_args()
-
-	flair_subsections = args.flairs.split(',')
-	subsection_headers = args.headers.split(',')
-	megathreads = args.megathreads.split(';')
 
 	## Initialize PRAW Reddit
 	reddit = praw.Reddit(args.site)
 	reddit.validate_on_submit = True
+
+	## Parse the custom praw.ini configuration parameters
+	subsection_flairs = []
+	subsection_headers = []
+	megathreads = []
+
+	for setting in sorted(reddit.config.custom):
+		if SUBSECTION_FLAIR_CONFIG_PREFIX == setting[:len(SUBSECTION_FLAIR_CONFIG_PREFIX)]:
+			subsection_flairs.append(reddit.config.custom[setting])
+		if SUBSECTION_HEADER_CONFIG_PREFIX == setting[:len(SUBSECTION_HEADER_CONFIG_PREFIX)]:
+			subsection_headers.append(reddit.config.custom[setting])
+		if MEGATHREAD_CONFIG_PREFIX == setting[:len(MEGATHREAD_CONFIG_PREFIX)]:
+			megathreads.append(reddit.config.custom[setting])
 
 	print("[" + str(datetime.datetime.now()) + "] Bot is running...")
 	print("[" + str(datetime.datetime.now()) + "] Updating Megathread post...")
@@ -131,7 +141,7 @@ def main():
 	# Generate and edit the Megathread post
 	megathread_post = reddit.comment(id=reddit.config.custom['comment_id'])
 	megathread_post.edit(
-		generate_megathread_section(reddit, flair_subsections, subsection_headers, megathreads)
+		generate_megathread_section(reddit, subsection_flairs, subsection_headers, megathreads)
 	)
 
 	print("[" + str(datetime.datetime.now()) + "] Megathread post updated.")
