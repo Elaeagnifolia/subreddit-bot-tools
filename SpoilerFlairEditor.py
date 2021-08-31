@@ -43,7 +43,7 @@ def is_set_spoiler_comment(comment):
 	FLAIR_ADDITION_MAX_LIMIT = 35
 
 	comment_split = comment.split('=', 1)
-	if comment_split[0].strip() == 'spoiler' and len(comment_split[1]) < FLAIR_ADDITION_MAX_LIMIT:
+	if comment_split[0].strip().lower() == 'spoiler' and len(comment_split[1]) < FLAIR_ADDITION_MAX_LIMIT:
 		return True
 	return False
 
