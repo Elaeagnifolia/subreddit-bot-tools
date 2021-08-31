@@ -1,6 +1,17 @@
 # subreddit-bot-tools
 Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
 
+## Table of Contents
+* [Requirements](#requirements)
+* [MegathreadPostUpdater.py](#megathreadpostupdaterpy)
+    * [To-Do](#to-do)
+    * [praw.ini](#prawini)
+        * [Template](#template)
+    * [Usage](#usage)
+        * [Example](#example)
+* [FlairEditor.py](#flaireditorpy)
+    * [To-Do](#to-do)
+
 ## Requirements
 
 * Register your Reddit App: https://www.reddit.com/prefs/apps/
@@ -10,7 +21,8 @@ Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
 ## MegathreadPostUpdater.py
 For a given post, users can specify flairs to generate subsections with lists of submissions for the given flair. By default, also generates a list of the given Megathreads with the latest posts for that type of Megathread.
 
-**TO-DO**: Add functionality for it to edit the Wiki as well (index, sidebar, etc.)
+### To-Do
+* Add functionality for it to edit Wiki pages as well (index, sidebar, etc.)
 
 ### praw.ini
 A lot of the settings used in the program come from custom-defined variables in the praw.ini.
@@ -89,3 +101,11 @@ megathread3=Monthly Friend Request Megathread
 megathread4=Free Talk Weekend Weekly Megathread
 megathread5=Self Promotion Megathread
 ```
+
+## FlairEditor.py
+For cases where a community wants to allow limited editing of flairs. For example, if a user has a `Game Screenshot` post marked as Spoiler, and they want to add where in the game the post spoils (e.g. Chapter 3), replying to the bot will edit the flair to be `Game Screenshot [Chapter 3]`.
+
+This allows users to add in this information without needing to have their post deleted/repost and also doesn't completely give users access to flair editing.
+
+### To-Do
+* 
