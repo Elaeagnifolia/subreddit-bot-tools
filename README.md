@@ -74,7 +74,7 @@ Arguments:
 
 **Link**: https://www.reddit.com/r/MrLove/comments/f29nzo/read_me_subreddit_rules_megathreads_flairs_and/fhb3qyk/
 
-**Command**: `MegathreadPostUpdater.py mrlove_bot`
+**Command**: `py MegathreadPostUpdater.py mrlove_bot`
 
 **praw.ini Example**:
 ```
