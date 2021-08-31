@@ -10,6 +10,7 @@ Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
     * [Usage](#usage)
         * [Example](#example)
 * [SpoilerFlairEditor.py](#spoilerflaireditorpy)
+    * [To-Do](#to-do-1)
     * [praw.ini](#prawini-1)
         * [Template](#template)
     * [Usage](#usage)
@@ -116,6 +117,7 @@ This allows users to add in this information without needing to have their post 
 A bot will only edit a flair once per post to prevent flair editing abuse.
 
 ### To-Do
+* The currenct check to see if a bot has already edited a post's flair isn't great. Improve it.
 * Some parts of the script may be too specific to the subreddit this was initially intended for (/r/TearsOfThemis). Refactor to make it applicable across more subreddits.
 
 ### praw.ini
