@@ -53,7 +53,7 @@ def edit_spoiler_flairs(reddit, posts):
 			if comment.is_submitter and is_set_spoiler_comment(comment.body):
 				current_flair_id = submission.link_flair_template_id
 				current_flair_text = submission.link_flair_text
-				new_flair_text = current_flair_text + ' [' + comment.body.split('=', 1)[1] + ']'
+				new_flair_text = current_flair_text + ' | ' + comment.body.split('=', 1)[1]
 				submission.flair.select(current_flair_id, new_flair_text)
 
 def main():
