@@ -1,24 +1,28 @@
 # subreddit-bot-tools
 Collection of miscellaneous Reddit tools by /u/Elaeagnifolia.
 
-These all use PRAW. Quick start and installation can be found here: https://praw.readthedocs.io/en/stable/
+## Requirements
+
+* Python 3. Specific version used for development of these tools is 3.9.4.
+* PRAW. Quick start and installation can be found here: https://praw.readthedocs.io/en/stable/
 
 ## MegathreadPostUpdater.py
-Generates a list of desired threads and megathreads automatically in a given comment. Acts as a way to get around Reddit's only 2 pinned posts.
+For a given post, users can specify flairs to generate subsections with lists of submissions for the given flair. By default, also generates a list of the given Megathreads with the latest posts for that type of Megathread.
 
 **TO-DO**: Add functionality for it to edit the Wiki as well (index, sidebar, etc.)
 
 **praw.ini Variables**
 ```
-user_agent
-redirect_uri
-client_id
-client_secret
-password
-username
-subreddit
-comment_id
-post_limit
+[site]
+user_agent=
+redirect_uri=
+client_id=
+client_secret=
+password=
+username=
+subreddit=
+comment_id=
+post_limit=
 ```
 
 **Usage**
@@ -34,5 +38,7 @@ Arguments:
 ```
 
 **Examples**
-* /r/MrLove: https://www.reddit.com/r/MrLove/comments/f29nzo/read_me_subreddit_rules_megathreads_flairs_and/fhb3qyk/
-* /r/TearsOfThemis: https://www.reddit.com/r/TearsOfThemis/comments/mzrhe5/read_me_subreddit_rules_megathreads_flairs_and/
+* /r/MrLove - `MegathreadPostUpdater.py mrlove_bot "Event,Meta,Pinned" "Current Events,Game News/Information,Other Pinned Posts" "Weekly General Help/Questions Megathread;Monthly Pull, Achievements, and Salt Megathread;Monthly Friend Request Megathread;Free Talk Weekend Weekly Megathread;Self Promotion Megathread"`
+    * Link: https://www.reddit.com/r/MrLove/comments/f29nzo/read_me_subreddit_rules_megathreads_flairs_and/fhb3qyk/
+* /r/TearsOfThemis - `MegathreadPostUpdater.py tot_bot "Pinned,Event,News,Subreddit News" "Pinned,Current Events,Game News/Information,Subreddit News/Information" "Weekly General Help/Questions Megathread;Weekly Progress, Pulls, and Collection Megathread;Monthly Friend UID Megathread"`
+    * Link: https://www.reddit.com/r/TearsOfThemis/comments/mzrhe5/read_me_subreddit_rules_megathreads_flairs_and/
