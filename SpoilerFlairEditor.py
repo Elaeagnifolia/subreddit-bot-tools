@@ -22,7 +22,7 @@ def get_spoiler_posts(reddit):
 	spoiler_posts = []
 
 	for submission in posts:
-		if submission.spoiler == True and '[' not in submission.link_flair_text and submission.link_flair_text != "Future Content":
+		if submission.spoiler == True and '|' not in submission.link_flair_text and submission.link_flair_text != "Future Content":
 			spoiler_posts.append(submission)
 
 	return spoiler_posts
